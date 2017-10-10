@@ -476,6 +476,7 @@ th {
   display: block;
   z-index: -1;
   box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.6);
+  background-color: #FFF;
 }
 
 .slbImage {
@@ -1618,6 +1619,21 @@ body {
   font-size: 1.3em;
   line-height: 1.4;
   color: #666;
+}
+
+.photoGallery {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.photoGallery > .imageGallery1 {
+  padding: 2em 0;
+}
+
+.photoGallery > .imageGallery1 > a img {
+  width: 30%;
+  padding: 1%;
 }
 
 .listModuleType1 {
