@@ -11,9 +11,26 @@ module.exports = function(grunt) {
             app: {
                 files: [{
                     expand: true,
-                    cwd: '<%= settings.srcPath %>scss',
+                    cwd: '<%= settings.srcPath %>scss/bundles',
                     src: ['**/*.scss'],
-                    dest: '<%= settings.distPath %>css',
+                    dest: '<%= settings.distPath %>css/bundles',
+                    ext: '.css'
+                }],
+                options: {
+                    outputStyle: 'expanded',
+                    sourceMap: false,
+                    precision: 5,
+                    includePaths: [
+                        'node_modules'
+                    ]
+                }
+            },
+            other: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= settings.srcPath %>scss/other',
+                    src: ['*.scss'],
+                    dest: '<%= settings.distPath %>css/',
                     ext: '.css'
                 }],
                 options: {
