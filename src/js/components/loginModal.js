@@ -8,7 +8,7 @@ module.exports = View.extend({
     initialize: function(options) {
 
         $.simpleLightbox.open({
-            content: $('.loginModal').clone(),
+            content: $('<div>').load( "login-modal.html" ),
             elementClass: 'slbContentEl'
         });
 
