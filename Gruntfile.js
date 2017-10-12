@@ -57,7 +57,8 @@ module.exports = function(grunt) {
 
         jshint: {
             options: {
-                jshintrc: '.jshintrc'
+                jshintrc: '.jshintrc',
+                reporterOutput: ''
             },
             files: {
                 src: ['<%= settings.srcPath %>js/**/*.js', 'Gruntfile.js']
@@ -72,6 +73,37 @@ module.exports = function(grunt) {
                 files: {
                     src: ['<%= settings.srcPath %>js/**/*.js', 'Gruntfile.js']
                 }
+            }
+        },
+
+        imagemin: {
+            png: {
+                options: {
+                    optimizationLevel: 3
+                },
+                files: [
+                {
+                    expand: true,
+                    cwd: '<%= settings.srcPath %>images',
+                    src: ['**/*.png'],
+                    dest: '<%= settings.distPath %>images',
+                    ext: '.png'
+                }
+              ]
+            },
+            jpg: {
+                options: {
+                    progressive: true
+                },
+                files: [
+                {
+                    expand: true,
+                    cwd: '<%= settings.srcPath %>images',
+                    src: ['**/*.jpg'],
+                    dest: '<%= settings.distPath %>images',
+                    ext: '.jpg'
+                }
+              ]
             }
         },
 
@@ -106,6 +138,6 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('build', ['jshint', 'jscs', 'sass', 'includereplace', 'sync']);
+    grunt.registerTask('build', ['jshint', 'jscs', 'sass', 'includereplace', 'sync', 'imagemin']);
 
 };

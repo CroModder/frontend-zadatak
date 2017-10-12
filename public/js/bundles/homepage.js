@@ -110,7 +110,7 @@
 	var View = __webpack_require__(3);
 	var MainNav = __webpack_require__(6);
 	var MainSearch = __webpack_require__(7);
-	var PhotoGallery = __webpack_require__(11)
+	var PhotoGallery = __webpack_require__(9);
 
 	module.exports = View.extend({
 
@@ -145,7 +145,7 @@
 
 	        __webpack_require__.e/* nsure */(1, function() {
 
-	            var LoginModal = __webpack_require__(9);
+	            var LoginModal = __webpack_require__(11);
 	            new LoginModal();
 
 	        });
@@ -11677,7 +11677,25 @@
 
 
 /***/ }),
-/* 9 */,
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var View = __webpack_require__(3);
+
+	__webpack_require__(10);
+
+	module.exports = View.extend({
+
+	    initialize: function() {
+
+	        this.$('.imageGallery1 a').simpleLightbox();
+
+	    }
+
+	});
+
+
+/***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12075,25 +12093,6 @@
 	    return $;
 
 	}));
-
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var View = __webpack_require__(3);
-
-	__webpack_require__(10);
-
-	module.exports = View.extend({
-
-	    initialize: function() {
-
-	        this.$('.imageGallery1 a').simpleLightbox();
-
-	    }
-
-	});
 
 
 /***/ })
