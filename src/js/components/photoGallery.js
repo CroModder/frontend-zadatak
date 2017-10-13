@@ -1,3 +1,4 @@
+var $ = require('jquery');
 var View = require('jquery-simple-view');
 
 module.exports = View.extend({
@@ -8,7 +9,11 @@ module.exports = View.extend({
             e.preventDefault();
             require.ensure(['simple-lightbox'], function() {
                 require('simple-lightbox');
-                $thumbnail.simpleLightbox();
+                $.simpleLightbox.open({
+                    $items: $thumbnail,
+                    startAt: $thumbnail.index($(e.target)),
+                    bindToItems: false
+                });
 
                 var links = document.getElementsByTagName('link'),
                 needCSS = true;
